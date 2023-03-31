@@ -1,10 +1,12 @@
 import React from "react";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
+import { Text } from "react-native";
 import CategoryCard from "../components/categoryCard";
 import { NavProps } from "../components/nav";
-import Layout from "../ui/layout";
+import Layout from "../components/layout";
 import List from "../ui/list";
 import Title from "../ui/title";
+import BackButton from "../components/backButton";
 
 type Props = NativeStackScreenProps<NavProps, "List">;
 
@@ -17,6 +19,9 @@ const ListScreen = ({ route, navigation }: Props) => {
 
   return (
     <Layout>
+      <BackButton onPress={() => navigation.pop()}>
+        <Text>Home</Text>
+      </BackButton>
       <Title>{name}</Title>
       <List
         data={[

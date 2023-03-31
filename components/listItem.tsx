@@ -1,19 +1,32 @@
 import React from "react";
-import { View, StyleSheet, Text, TouchableOpacity } from "react-native";
+import {
+  View,
+  StyleSheet,
+  Text,
+  Pressable,
+  GestureResponderEvent,
+} from "react-native";
 
-type CheckBoxProps = {
+type ListItemProps = {
   isChecked?: boolean;
   name: string;
+  onShowOptions: (event: GestureResponderEvent) => void;
 };
 
-const CheckBox: React.FC<CheckBoxProps> = ({ isChecked = false, name }) => {
+const ListItem: React.FC<ListItemProps> = ({
+  isChecked = false,
+  name,
+  onShowOptions,
+}) => {
   return (
-    <TouchableOpacity style={styles.container}>
-      <TouchableOpacity style={styles.box}>
+    <Pressable style={styles.container}>
+      <Pressable style={styles.box}>
         {isChecked && <View style={styles.boxChecked}></View>}
-      </TouchableOpacity>
-      <Text style={styles.name}>{name}</Text>
-    </TouchableOpacity>
+      </Pressable>
+      <Pressable onPress={onShowOptions}>
+        <Text style={styles.name}>{name}</Text>
+      </Pressable>
+    </Pressable>
   );
 };
 
@@ -47,4 +60,4 @@ const styles = StyleSheet.create({
   nameChecked: {},
 });
 
-export default CheckBox;
+export default ListItem;

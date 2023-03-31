@@ -1,12 +1,8 @@
 import React from "react";
-import {
-  StyleSheet,
-  TouchableOpacity,
-  TouchableOpacityProps,
-} from "react-native";
+import { Pressable, PressableProps, StyleSheet } from "react-native";
 
-const Card: React.FC<TouchableOpacityProps> = (props) => {
-  return <TouchableOpacity style={styles.card} {...props} />;
+const Card: React.FC<PressableProps> = (props) => {
+  return <Pressable style={styles.card} {...props} />;
 };
 
 const styles = StyleSheet.create({

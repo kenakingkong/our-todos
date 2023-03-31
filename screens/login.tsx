@@ -1,7 +1,7 @@
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import { Text } from "react-native";
 import { NavProps } from "../components/nav";
-import Layout from "../ui/layout";
+import Layout from "../components/layout";
 
 type Props = NativeStackScreenProps<NavProps, "Login">;
 
